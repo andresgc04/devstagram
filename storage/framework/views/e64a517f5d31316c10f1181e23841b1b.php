@@ -37,7 +37,15 @@ unset($__errorArgs, $__bag); ?>
                 <div class="mb-5">
                     <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">Username</label>
                     <input id="username" name="username" type="text" placeholder="Tu Nombre de Usuario"
-                        class="border p-3 w-full rounded-lg" />
+                        class="border p-3 w-full rounded-lg <?php $__errorArgs = ['username'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500  <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                        value="<?php echo e(old('username')); ?>" />
                     <?php $__errorArgs = ['username'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -52,7 +60,15 @@ unset($__errorArgs, $__bag); ?>
                 <div class="mb-5">
                     <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">Email</label>
                     <input id="email" name="email" type="email" placeholder="Tu Email de Registro"
-                        class="border p-3 w-full rounded-lg" />
+                        class="border p-3 w-full rounded-lg <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500  <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                        value="<?php echo e(old('email')); ?>" />
                     <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -67,7 +83,14 @@ unset($__errorArgs, $__bag); ?>
                 <div class="mb-5">
                     <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">Password</label>
                     <input id="password" name="password" type="password" placeholder="Password de Registro"
-                        class="border p-3 w-full rounded-lg" />
+                        class="border p-3 w-full rounded-lg <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500  <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" />
                     <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
