@@ -21,6 +21,9 @@ class RegisterController extends Controller
 
         //dd($request->get('username'));
 
+        // Modificar el request:
+        $request->request->add(['username' => Str::slug($request->username)]);
+
         //Validación:
         $request->validate([
             'name' => 'required|max:50',
@@ -31,7 +34,7 @@ class RegisterController extends Controller
 
         User::create([
             'name' => $request->name,
-            'username' => Str::slug($request->username),
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
