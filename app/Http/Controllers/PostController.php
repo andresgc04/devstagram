@@ -7,9 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    //
-    public function index() 
+    public function index()
     {
-        dd(Auth::user());
+        return view('dashboard');
     }
 }
