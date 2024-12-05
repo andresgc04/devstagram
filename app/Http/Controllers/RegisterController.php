@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -39,8 +40,16 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        //Redireccionar:
+        //Autenticar Usuarios:
+        // auth()->attempt([
+        //     'email' => $request->email,
+        //     'password' => $request->password
+        // ]);
 
+        //Otra forma de autenticar usuarios:
+        Auth::attempt($request->only('email', 'password'));
+
+        //Redireccionar:
         return redirect()->route('posts.index');
     }
 }
