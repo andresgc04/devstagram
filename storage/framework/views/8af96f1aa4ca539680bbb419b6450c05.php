@@ -16,10 +16,22 @@
                 DevStagram
             </h1>
 
-            <nav class="flex gap-2 items-center">
-                <a class="font-bold uppercase text-gray-600 text-sm" href="">Login</a>
-                <a class="font-bold uppercase text-gray-600 text-sm" href="<?php echo e(route('register')); ?>">Crear Cuenta</a>
-            </nav>
+            <!-- Verificar si un usuario esta autenticado o no: -->
+            <?php if(auth()->guard()->check()): ?>
+                <nav class="flex gap-2 items-center">
+                    <a class="font-bold text-gray-600 text-sm" href="#">
+                        Hola: <span class="font-normal"><?php echo e(Auth::user()->username); ?></span>
+                    </a>
+                    <a class="font-bold uppercase text-gray-600 text-sm" href="<?php echo e(route('register')); ?>">Cerrar Sesión</a>
+                </nav>
+            <?php endif; ?>
+
+            <?php if(auth()->guard()->guest()): ?>
+                <nav class="flex gap-2 items-center">
+                    <a class="font-bold uppercase text-gray-600 text-sm" href="<?php echo e(route('login')); ?>">Login</a>
+                    <a class="font-bold uppercase text-gray-600 text-sm" href="<?php echo e(route('register')); ?>">Crear Cuenta</a>
+                </nav>
+            <?php endif; ?>
         </div>
     </header>
     <main class="container mx-auto mt-10">
