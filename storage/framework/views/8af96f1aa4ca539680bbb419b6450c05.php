@@ -22,7 +22,7 @@
                     <a class="font-bold text-gray-600 text-sm" href="#">
                         Hola: <span class="font-normal"><?php echo e(Auth::user()->username); ?></span>
                     </a>
-                    <a class="font-bold uppercase text-gray-600 text-sm" href="<?php echo e(route('register')); ?>">Cerrar Sesión</a>
+                    <a class="font-bold uppercase text-gray-600 text-sm" href="<?php echo e(route('logout')); ?>">Cerrar Sesión</a>
                 </nav>
             <?php endif; ?>
 
