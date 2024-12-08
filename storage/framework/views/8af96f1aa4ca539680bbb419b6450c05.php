@@ -37,7 +37,7 @@
                         Crear
                     </a>
 
-                    <a class="font-bold text-gray-600 text-sm" href="#">
+                    <a class="font-bold text-gray-600 text-sm" href="<?php echo e(route('posts.index', Auth::user()->username)); ?>">
                         Hola: <span class="font-normal"><?php echo e(Auth::user()->username); ?></span>
                     </a>
 
