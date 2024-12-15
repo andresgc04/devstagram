@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DevStagram - <?php echo $__env->yieldContent('titulo'); ?></title>
-    <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
-    <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
+    
 </head>
 
 <body class="bg-gray-100">
