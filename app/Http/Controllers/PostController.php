@@ -36,6 +36,14 @@ class PostController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
+        //Otra forma de realizar los post:
+        // $post = new Post;
+        // $post->titulo = $request->titulo;
+        // $post->descripcion = $request->descripcion;
+        // $post->imagen = $request->imagen;
+        // $post->user_id = Auth::user()->id;
+        // $post->save();
+
         return redirect()->route('posts.index', Auth::user()->username);
     }
 }
