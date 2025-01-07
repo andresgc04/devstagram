@@ -18,9 +18,14 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
-Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index')->middleware('auth');
-Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
-Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+//Grupo con el middleware auth:
+Route::middleware('auth')->group(function () {
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+});
+
+//Excluir la ruta específica:
+Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index');
 Route::get('/{user:username}/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.store');
